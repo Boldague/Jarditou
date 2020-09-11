@@ -27,21 +27,14 @@ document.querySelector('#form').onsubmit = function checkForm(e)
         var value = this.elements[i].value;
         if(VerifChampsNull(true,value))
         {
-            //message += "Nom : "+ name + " = " + tabName.indexOf(name)+ "\n";
             if(tabName.indexOf(name) != -1)
             {  
                 var filtre = new RegExp(tabFiltre[tabName.indexOf(name)]);
-                //message += "filtre : "+ filtre + "\n";
                 var estFiltre = filtre.test(value);
-                //message += "estFiltre : "+ estFiltre + "\n";
-                //alert(message);
                 if(!estFiltre)
                 {
                     
                     document.getElementById(("error"+ name)).innerHTML = tabError[tabName.indexOf(name)];
-                    //message += "tabError" + " : " + tabError[tabName.indexOf(name)] + "\n";
-                    //message += "error"+ name + " : " + document.getElementById(("error"+ name)).innerHTML + "\n";
-                    //alert(message);
                     check = false;
                 }
                 else
@@ -51,7 +44,6 @@ document.querySelector('#form').onsubmit = function checkForm(e)
             }
         }
     }
-    //alert(message);
     return check;
 }
 
